@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thailand Energy Dashboard Full Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Title Section -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="main-title thai-font">สถานการณ์การผลิตและจำหน่ายไฟฟ้า และก๊าซธรรมชาติของผู้ได้รับใบอนุญาต</h1>
+            <p class="subtitle thai-font">มกราคม ปี 256x ถึง ธันวาคม ปี 256x</p>
+        </div>
+        <div class="user-badge thai-font bg-dark-blue">ผู้ใช้ไฟฟ้า</div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        <main class="dashboard-grid">
+            <svg class="connections-overlay" id="connections"></svg>
+
+            <!-- COL 1: Overview & Charts (Left sidebar) -->
+            <section class="ds-column col-overview">
+                <!-- Large rig Illustration Placeholder -->
+                <div class="big-illustration">
+                    <img src="https://via.placeholder.com/300x200.png?text=Oil+Rig+Illustration" alt="Oil Rig Illustration" style="width: 100%; border-radius: 10px; opacity: 0.1;">
+                </div>
+                
+                <!-- Pie Chart 1 -->
+                <div class="chart-card">
+                    <p class="chart-title thai-font">การผลิตพลังงานไฟฟ้าในระบบ</p>
+                    <div class="pie-placeholder"></div>
+                    <div class="chart-total">Total: 211,745.42 GWh</div>
+                </div>
+
+                <!-- Pie Chart 2 -->
+                <div class="chart-card">
+                    <p class="chart-title thai-font">การจัดหาแหล่งก๊าซธรรมชาติ</p>
+                    <div class="pie-placeholder pie-teal"></div>
+                    <div class="chart-total">Total: 1,487,153,550.00 MMBTU</div>
+                </div>
+            </section>
+
+            <!-- COL 2: Gas Sources -->
+            <section class="ds-column col-gas-sources">
+                <div class="column-header">
+                    <h2 class="title-orange">Gas Supply <span class="unit">(BBTU)</span></h2>
+                </div>
+
+                <!-- LNG & Myanmar Gas -->
+                <div class="nodes-list" id="lng-nodes" style="margin-bottom: 2rem; margin-top: 5rem;">
+                    <div class="data-node">
+                        <div style="font-size: 1.5rem; margin-right: 0.5rem; filter: grayscale(1);">🚢</div>
+                        <div class="node-value">4,103.12</div>
+                        <div class="node-label bg-green">LNG LT+SPOT</div>
+                    </div>
+                    <div class="data-node">
+                        <div class="node-value">156,003.49</div>
+                        <div class="node-label bg-teal">Yadana</div>
+                    </div>
+                    <div class="data-node">
+                        <div class="node-value">9,920.38</div>
+                        <div class="node-label bg-teal">Yetagun</div>
+                    </div>
+                    <div class="data-node">
+                        <div class="node-value">83,371.30</div>
+                        <div class="node-label bg-teal">Zawtika</div>
+                    </div>
+                </div>
+
+                <div class="column-header">
+                    <h3 class="subtitle-blue">Gulf of Thailand</h3>
+                </div>
+
+                <!-- Gulf of Thailand Nodes -->
+                <div class="nodes-list" id="gulf-nodes">
+                    <div class="data-node" data-id="node-benjamas"><div class="node-value">18,460.47</div><div class="node-label bg-teal">Benjamas<br>Tantaman</div></div>
+                    <div class="data-node" data-id="node-g1-61"><div class="node-value">100,900.26</div><div class="node-label bg-teal">G1/61 CTEP1-3</div></div>
+                    <div class="data-node" data-id="node-gbn"><div class="node-value">125,248.86</div><div class="node-label bg-light-green">GBN</div></div>
+                    <div class="data-node" data-id="node-gbs"><div class="node-value">164,902.08</div><div class="node-label bg-teal">GBS</div></div>
+                    <div class="data-node" data-id="node-arthit"><div class="node-value">104,996.79</div><div class="node-label bg-teal">Arthit</div></div>
+                    <div class="data-node" data-id="node-pailin"><div class="node-value">145,432.03</div><div class="node-label bg-teal">Pailin</div></div>
+                    <div class="data-node" data-id="node-jda-a18"><div class="node-value">137,230.07</div><div class="node-label bg-teal">JDA A18</div></div>
+                    <div class="data-node" data-id="node-jda-b17"><div class="node-value">13,108.29</div><div class="node-label bg-teal">JDA B17</div></div>
+                </div>
+            </section>
+
+            <!-- COL 3: Central Processing Hub -->
+            <section class="ds-column center-align col-processing">
+                <!-- Direct Customer placeholders could go here if needed -->
+                
+                <div class="platform-container" id="gulf-platform" style="margin-top: 12rem;">
+                    <div class="platform-image"><div class="platform-icon">🛢️</div></div>
+                    <div class="platform-label bg-dark">GULF GAS</div>
+                </div>
+                
+                <div class="vertical-flow"><div class="flow-arrow-down"></div></div>
+                
+                <div class="data-node split-node">
+                    <div class="node-label bg-cyan badge-rounded" id="gas-sep-plant">Gas Separation Plant</div>
+                </div>
+                
+                <div class="vertical-flow"><div class="flow-arrow-down"></div></div>
+                <div class="node-label bg-white border-blue badge-rounded" style="color:var(--text-dark); font-weight:700;">LPG & Petrochemical</div>
+
+                <!-- Pool Gas Thailand Map Node -->
+                <div class="pool-gas-container" id="pool-gas" style="margin-top: 3rem;">
+                    <div class="map-circle bg-dark-blue">
+                        <h3 style="color:white;">POOL GAS</h3>
+                        <div style="font-size:3rem; margin-top: 0.5rem;">🇹🇭</div>
+                    </div>
+                    <div class="vertical-flow"><div class="flow-arrow-down"></div></div>
+                    
+                    <div style="display:flex; gap:1rem; align-items:center;">
+                        <div class="node-label bg-white border-blue" id="ptt-op">PTT Operation</div>
+                        <div class="flow-arrow-down" style="height:2px; width:20px; background:var(--color-cyan); margin:0;"></div>
+                        <div class="node-label bg-white border-blue" id="direct-cu" style="border-radius:10px; color:var(--text-dark);">Direct Customer</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COL 4: Power Generation -->
+            <section class="ds-column center-align col-generation">
+                <!-- Top Non-Gas / RE / Import Nodes -->
+                <div class="power-nodes-list" id="re-import-nodes" style="margin-bottom: 2rem;">
+                    <div class="gen-node"><div class="node-label bg-dark-teal">SPP/RE</div><div class="node-value">9,942.71</div></div>
+                    <div class="gen-node"><div class="node-label bg-dark" style="color:white;">SPP [Non Gas]</div><div class="node-value">1,820.75</div></div>
+                    <div class="gen-node"><div class="node-label bg-dark-teal">EGAT RE</div><div class="node-value">6,616.79</div></div>
+                    <div class="gen-node"><div class="node-label bg-dark" style="color:white;">EGAT/IPP [Non Gas]</div><div class="node-value">32,335.20</div></div>
+                    <div class="gen-node"><div class="node-label bg-dark" style="color:white;">Import-Non Hydro</div><div class="node-value">14,691.38</div></div>
+                    <div class="gen-node"><div class="node-label bg-dark-teal">Import-Hydro</div><div class="node-value">20,705.41</div></div>
+                </div>
+
+                <!-- OnShore Pipeline Label above Power by Gas -->
+                <div class="node-label bg-white border-blue badge-rounded" style="color:#2563eb; align-self:center; font-weight:700;">OnShore Pipeline</div>
+                <div class="vertical-flow"><div class="flow-arrow-down"></div></div>
+
+                <!-- Power by Gas nodes list -->
+                <div class="power-nodes-list" id="power-by-gas">
+                    <div class="gen-node">
+                        <div class="node-label bg-light-orange">EGAT น้ำพอง</div><div class="node-value">3,964.62</div>
+                    </div>
+                    <div class="gen-node">
+                        <div class="node-label bg-light-orange">EGAT จะนะ</div><div class="node-value">5,876.43</div>
+                    </div>
+                    <div class="gen-node">
+                        <div class="node-label bg-light-orange">IPP สต็อก</div><div class="node-value">6,065.39</div>
+                    </div>
+                    <div class="gen-node highlight-gen">
+                        <div class="node-label bg-orange">EGAT ภาคกลาง</div><div class="node-value">178,009.99</div>
+                    </div>
+                    <div class="gen-node">
+                        <div class="node-label bg-light-orange">IPP</div><div class="node-value">30,258.42</div>
+                    </div>
+                    <div class="gen-node">
+                        <div class="node-label bg-light-orange">SPP</div><div class="node-value">39,472.34</div>
+                    </div>
+                </div>
+
+                <!-- System Operation -->
+                <div class="system-op-container" id="system-op" style="margin-top: 3rem;">
+                    <div class="op-graphic bg-light-yellow">
+                        <!-- Factory graphic -->
+                        <div style="font-size:3rem;">🏭</div>
+                        <h4 class="thai-font">SYSTEM OPERATION<br>[EGAT]</h4>
+                        <div class="total-val">203,901.65</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COL 5: Power Distribution Demand -->
+            <section class="ds-column col-demand">
+                <div class="column-header text-right">
+                    <h2 class="title-blue">Electricity Supply <span class="unit">[GWh]</span></h2>
+                </div>
+
+                <!-- Top extra nodes: VSPP, Export -->
+                <div class="power-nodes-list" style="margin-bottom:1rem;">
+                    <div class="gen-node mini-node"><div class="node-label bg-dark" style="color:white;">VSPP non RE</div><div class="node-value">22.46</div></div>
+                    <div class="gen-node mini-node"><div class="node-label bg-light-green">VSPP/RE</div><div class="node-value">11,605.12</div></div>
+                    <div style="display:flex; gap:1rem; width:100%; margin-top:0.5rem;">
+                        <div class="node-label bg-white border-blue" style="font-size:0.75rem; padding:0.2rem 0.5rem; flex:1;">Export <span style="font-family:monospace;">577.75</span></div>
+                        <div class="node-label bg-white border-blue" style="font-size:0.75rem; padding:0.2rem 0.5rem; flex:1;">EGAT Direct <span style="font-family:monospace;">1,237.48</span></div>
+                    </div>
+                </div>
+
+                <!-- PEA Block -->
+                <div class="distributor-block" id="pea-block">
+                    <h3 class="dist-title bg-pea">PEA</h3>
+                    <div class="dist-nodes">
+                        <div class="d-node"><div class="d-label">ย่อยส่วนภูมิภาค</div><div class="d-val">38,261.31</div></div>
+                        <div class="d-node"><div class="d-label">กิจการขนาดกลาง</div><div class="d-val">22,454.50</div></div>
+                        <div class="d-node highlight-val"><div class="d-label">กิจการขนาดใหญ่</div><div class="d-val">58,387.27</div></div>
+                        <div class="d-node"><div class="d-label">กิจการเฉพาะอย่าง</div><div class="d-val">3,507.54</div></div>
+                        <div class="d-node"><div class="d-label">ผู้ว่าจ้างตรง</div><div class="d-val">679.23</div></div>
+                    </div>
+                </div>
+                
+                <!-- Middle extra nodes -->
+                <div class="power-nodes-list" style="margin: 1.5rem 0; align-items:flex-end;">
+                     <div class="node-label bg-white border-blue" style="color:var(--text-dark); padding:0.5rem 1rem;">Public Service <span style="font-family:monospace; margin-left:0.5rem;">3,597.29</span></div>
+                     <div class="gen-node mini-node" style="margin-top:0.5rem;"><div class="node-label bg-teal">IPS/RE</div><div class="node-value">3,841.33</div></div>
+                     <div class="gen-node mini-node"><div class="node-label bg-dark-teal">IPS/Non RE</div><div class="node-value">6,588.82</div></div>
+                </div>
+
+                <!-- MEA Block -->
+                <div class="distributor-block" id="mea-block">
+                    <h3 class="dist-title bg-mea">MEA</h3>
+                    <div class="dist-nodes">
+                        <div class="d-node"><div class="d-label">ย่อยนครหลวง</div><div class="d-val">15,487.03</div></div>
+                        <div class="d-node"><div class="d-label">กิจการขนาดกลาง</div><div class="d-val">8,446.21</div></div>
+                        <div class="d-node highlight-val"><div class="d-label">กิจการขนาดใหญ่</div><div class="d-val">17,373.15</div></div>
+                        <div class="d-node"><div class="d-label">กิจการเฉพาะอย่าง</div><div class="d-val">1,788.56</div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Adding SVG overlay logic back -->
+    <script src="script.js"></script>
+</body>
+</html>
